@@ -10,6 +10,6 @@ package cn.yyk.middleware;
  */
 public class Application {
     public static void main(String[] args) {
-        System.out.println("aaaa1234567");
+        System.out.println("aaaa123456789");
     }
 }
