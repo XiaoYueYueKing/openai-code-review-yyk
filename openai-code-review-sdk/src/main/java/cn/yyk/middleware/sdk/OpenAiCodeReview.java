@@ -78,7 +78,6 @@ public class OpenAiCodeReview {
 
         String url = String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s", accessToken);
         sendPostRequest(url, JSON.toJSONString(message));
-
     }
     //工具类
     private static void sendPostRequest(String urlString, String jsonBody) {
