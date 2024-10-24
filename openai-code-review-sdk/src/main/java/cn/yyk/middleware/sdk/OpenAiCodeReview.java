@@ -31,6 +31,7 @@ public class OpenAiCodeReview {
 //        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
         //这个要到github里面设置一个token，主要是方便得到token，有过期值的，如果失效了记得再弄一个
         String token = System.getenv("GITHUB_TOKEN");
+//        String token = "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";
         if (null == token || token.isEmpty()) {
             throw new RuntimeException("token is null");
         }
