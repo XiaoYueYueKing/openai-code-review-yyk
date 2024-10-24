@@ -64,21 +64,20 @@ public class OpenAiCodeReview {
         // 4. 消息通知
         System.out.println("pushMessage：" + logUrl);
         pushMessage(logUrl);
+        System.out.println("主函数内执行1");
     }
 
     private static void pushMessage(String logUrl){
         String accessToken = WXAccessTokenUtils.getAccessToken();
         System.out.println(accessToken);
-
+        System.out.println("主函数内执行2");
         Message message = new Message();
         message.put("project","big-market");
-        message.put("review",logUrl);
+        message.put("review","logUrl");
         message.setUrl(logUrl);
-        message.setTemplate_id("aekQ4_K-0fSr4FSYGl44gGiK6e7AFYRDtlfmd4giEgk");
-
+        message.setTemplate_id("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");
         String url = String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s", accessToken);
         sendPostRequest(url, JSON.toJSONString(message));
-
     }
     //工具类
     private static void sendPostRequest(String urlString, String jsonBody) {
@@ -154,7 +153,7 @@ public class OpenAiCodeReview {
 
     private static String writeLog(String token, String log) throws Exception{
         Git git = Git.cloneRepository()
-                .setURI("https://github.com/XiaoYueYueKing/openai-code-review-log")
+                .setURI("https://github.com/XiaoYueYueKing/openai-code-review-log.git")
                 .setDirectory(new File("repo"))
                 .setCredentialsProvider(new UsernamePasswordCredentialsProvider(token, ""))
                 .call();
@@ -178,7 +177,7 @@ public class OpenAiCodeReview {
 
         System.out.println("Changes have been pushed to the repository.");
 
-        return "https://github.com/XiaoYueYueKing/openai-code-review-log/blob/master" + dateFolderName + "/" + fileName;
+        return "https://github.com/XiaoYueYueKing/openai-code-review-log/blob/master/" + dateFolderName + "/" + fileName;
     }
 
     private static String generateRandomString(int length) {

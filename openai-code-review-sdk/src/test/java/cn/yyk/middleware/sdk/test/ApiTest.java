@@ -87,18 +87,18 @@ public class ApiTest {
 //        System.out.println(response.getChoices().get(0).getMessage().getContent());
     }
 
-//    @Test
-//    public void test_wx() {
-//        String accessToken = WXAccessTokenUtils.getAccessToken();
-//        System.out.println(accessToken);
-//
-//        Message message = new Message();
-//        message.put("project","big-market");
-//        message.put("review","feat: 新加功能12234");
-//
-//        String url = String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s", accessToken);
-//        sendPostRequest(url, JSON.toJSONString(message));
-//    }
+    @Test
+    public void test_wx() {
+        String accessToken = WXAccessTokenUtils.getAccessToken();
+        System.out.println(accessToken);
+
+        Message message = new Message();
+        message.put("project","big-market");
+        message.put("review","feat: 新加功能12234");
+
+        String url = String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s", accessToken);
+        sendPostRequest(url, JSON.toJSONString(message));
+    }
 
     private static void sendPostRequest(String urlString, String jsonBody) {
         try {
