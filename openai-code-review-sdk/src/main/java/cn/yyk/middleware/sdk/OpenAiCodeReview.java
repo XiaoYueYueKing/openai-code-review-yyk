@@ -52,6 +52,7 @@ public class OpenAiCodeReview {
         // 2. chatglm 代码评审
         String log = codeReview(diffCode.toString());
         System.out.println("code review" + log);
+
         // 3. 写入评审日志
         String logUrl = writeLog(token, log);
         System.out.println("writeLog：" + logUrl);

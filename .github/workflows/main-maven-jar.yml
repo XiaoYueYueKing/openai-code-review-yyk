@@ -30,8 +30,6 @@ jobs:
       - name: Copy openai-code-review-sdk JAR
         run: mvn dependency:copy -Dartifact=cn.yyk.middleware:openai-code-review-sdk:1.0 -DoutputDirectory=./libs
 
-      - name: Run Code Review
-        run: java -jar ./libs/openai-code-review-sdk-1.0.jar
       #这个是从github设置的token，会过期的
       - name: Run Code Review
         run: java -jar ./libs/openai-code-review-sdk-1.0.jar
