@@ -125,7 +125,7 @@ public class ApiTest {
 
     public static class Message {
         private String touser = "o-dcR63T9h__StN5ofDFbXM4wiNE";
-        private String template_id = "gqqTfILqYh_Ld0tW0ft7-QXil7m4BM4mQyRcMzdbWZg";
+        private String template_id = "aekQ4_K-0fSr4FSYGl44gGiK6e7AFYRDtlfmd4giEgk";
         private String url = "https://github.com/XiaoYueYueKing/openai-code-review-log/blob/main/2024-10-24/qbAWhkw1OKgY.md";
         private Map<String, Map<String, String>> data = new HashMap<>();
 
