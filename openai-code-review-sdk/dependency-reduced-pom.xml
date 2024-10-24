@@ -137,11 +137,11 @@
     </dependency>
   </dependencies>
   <properties>
-    <slf4j.version>2.0.6</slf4j.version>
     <java.version>1.8</java.version>
-    <retrofit2.version>2.9.0</retrofit2.version>
     <maven.compiler.source>1.8</maven.compiler.source>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <slf4j.version>2.0.6</slf4j.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <retrofit2.version>2.9.0</retrofit2.version>
   </properties>
 </project>
