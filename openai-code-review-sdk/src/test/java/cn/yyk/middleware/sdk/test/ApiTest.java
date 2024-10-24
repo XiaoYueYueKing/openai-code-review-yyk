@@ -1,6 +1,7 @@
 package cn.yyk.middleware.sdk.test;
 
 
+import cn.yyk.middleware.sdk.infrastructure.openai.dto.ChatCompletionSyncResponseDTO;
 import cn.yyk.middleware.sdk.types.utils.BearerTokenUtils;
 import cn.yyk.middleware.sdk.types.utils.WXAccessTokenUtils;
 import com.alibaba.fastjson2.JSON;
@@ -79,7 +80,7 @@ public class ApiTest {
         in.close();
         connection.disconnect();
 
-        ChatCompletionSyncResponse response = JSON.parseObject(content.toString(), ChatCompletionSyncResponse.class);
+        ChatCompletionSyncResponseDTO response = JSON.parseObject(content.toString(), ChatCompletionSyncResponseDTO.class);
         System.out.println(response.getChoices().get(0).getMessage().getContent());
 //        System.out.println(content);
 //        ChatCompletionSyncResponse response = JSON.parseObject(content.toString(), ChatCompletionSyncResponse.class);
