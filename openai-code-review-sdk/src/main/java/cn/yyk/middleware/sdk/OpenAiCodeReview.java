@@ -30,32 +30,35 @@ import java.util.Scanner;
  */
 public class OpenAiCodeReview {
     public static void main(String[] args) throws Exception {
-        System.out.println("openai代码评审，测试执行");
-//        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
-        //这个要到github里面设置一个token，主要是方便得到token，有过期值的，如果失效了记得再弄一个
+        System.out.println("openai 代码评审，测试执行");
+
         String token = System.getenv("GITHUB_TOKEN");
-//        String token = "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";
         if (null == token || token.isEmpty()) {
             throw new RuntimeException("token is null");
         }
 
-        //1、代码检出
+        // 1. 代码检出
         ProcessBuilder processBuilder = new ProcessBuilder("git", "diff", "HEAD~1", "HEAD");
         processBuilder.directory(new File("."));
+
         Process process = processBuilder.start();
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String line;
+
         StringBuilder diffCode = new StringBuilder();
         while ((line = reader.readLine()) != null) {
             diffCode.append(line);
         }
+
         int exitCode = process.waitFor();
         System.out.println("Exited with code:" + exitCode);
-        System.out.println("评审代码：" + diffCode.toString());
+
+        System.out.println("diff code：" + diffCode.toString());
 
         // 2. chatglm 代码评审
         String log = codeReview(diffCode.toString());
-        System.out.println("code review" + log);
+        System.out.println("code review：" + log);
 
         // 3. 写入评审日志
         String logUrl = writeLog(token, log);
@@ -64,18 +67,17 @@ public class OpenAiCodeReview {
         // 4. 消息通知
         System.out.println("pushMessage：" + logUrl);
         pushMessage(logUrl);
-//        System.out.println("主函数内执行1");
     }
 
     private static void pushMessage(String logUrl){
         String accessToken = WXAccessTokenUtils.getAccessToken();
         System.out.println(accessToken);
-        System.out.println("主函数内执行2");
+
         Message message = new Message();
-        message.put("project","big-market");
-        message.put("review","logUrl");
+        message.put("project", "big-market");
+        message.put("review", logUrl);
         message.setUrl(logUrl);
-        message.setTemplate_id("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");
+        message.setTemplate_id("aekQ4_K-0fSr4FSYGl44gGiK6e7AFYRDtlfmd4giEgk");
         String url = String.format("https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s", accessToken);
         sendPostRequest(url, JSON.toJSONString(message));
     }
