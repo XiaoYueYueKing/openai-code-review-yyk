@@ -64,7 +64,7 @@ public class OpenAiCodeReview {
         // 4. 消息通知
         System.out.println("pushMessage：" + logUrl);
         pushMessage(logUrl);
-        System.out.println("主函数内执行1");
+//        System.out.println("主函数内执行1");
     }
 
     private static void pushMessage(String logUrl){
