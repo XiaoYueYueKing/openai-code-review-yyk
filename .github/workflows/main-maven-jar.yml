@@ -32,3 +32,8 @@ jobs:
 
       - name: Run Code Review
         run: java -jar ./libs/openai-code-review-sdk-1.0.jar
+      #这个是从github设置的token，会过期的
+      - name: Run Code Review
+        run: java -jar ./libs/openai-code-review-sdk-1.0.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.CODE_TOKEN }}
