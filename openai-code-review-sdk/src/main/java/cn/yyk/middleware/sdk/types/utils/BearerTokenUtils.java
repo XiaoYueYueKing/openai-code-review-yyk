@@ -1,4 +1,4 @@
-package cn.yyk.middleware.sdk.utils;
+package cn.yyk.middleware.sdk.types.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

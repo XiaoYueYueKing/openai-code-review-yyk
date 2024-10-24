@@ -1,4 +1,4 @@
-package cn.yyk.middleware.sdk.utils;
+package cn.yyk.middleware.sdk.types.utils;
 
 import com.alibaba.fastjson2.JSON;
 
@@ -14,7 +14,12 @@ public class WXAccessTokenUtils {
     private static final String GRANT_TYPE = "client_credential";
     private static final String URL_TEMPLATE = "https://api.weixin.qq.com/cgi-bin/token?grant_type=%s&appid=%s&secret=%s";
 
+    //默认的调用接口
     public static String getAccessToken() {
+        return getAccessToken(APPID, SECRET);
+    }
+    //为别人开放的调用接口
+    public static String getAccessToken(String APPID, String SECRET) {
         try {
             String urlString = String.format(URL_TEMPLATE, GRANT_TYPE, APPID, SECRET);
             URL url = new URL(urlString);

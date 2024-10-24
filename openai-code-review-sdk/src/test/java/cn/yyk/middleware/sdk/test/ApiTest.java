@@ -1,9 +1,8 @@
 package cn.yyk.middleware.sdk.test;
 
 
-import cn.yyk.middleware.sdk.domain.model.ChatCompletionSyncResponse;
-import cn.yyk.middleware.sdk.utils.BearerTokenUtils;
-import cn.yyk.middleware.sdk.utils.WXAccessTokenUtils;
+import cn.yyk.middleware.sdk.types.utils.BearerTokenUtils;
+import cn.yyk.middleware.sdk.types.utils.WXAccessTokenUtils;
 import com.alibaba.fastjson2.JSON;
 import org.junit.Test;
 
