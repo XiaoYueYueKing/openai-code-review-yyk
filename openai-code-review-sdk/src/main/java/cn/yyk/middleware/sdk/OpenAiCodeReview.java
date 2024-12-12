@@ -75,7 +75,8 @@ public class OpenAiCodeReview {
                 getEnv("WEIXIN_TOUSER"),
                 getEnv("WEIXIN_TEMPLATE_ID")
         );
-
+        //随便改动一下，看看效果，改动的地方它会显示出来，commit可以看到
+        //commit是提交到本地，push是上传到远程仓库，也就是github之类的平台
 
         IOpenAI openAI = new ChatGLM(getEnv("CHATGLM_APIHOST"), getEnv("CHATGLM_APIKEYSECRET"));
 
